@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html'
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-  constructor() { }
+  @Input() aptList;
+  @Output() deleteEvt = new EventEmitter();
 
-  ngOnInit() {
+  handleDelete(theApt:object){
+    this.deleteEvt.emit(theApt);
   }
+  
 
 }
